@@ -15219,6 +15219,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
       // THE SOFTWARE.
       //
 
+
       var _quill = __webpack_require__(0);
 
       var _quill2 = _interopRequireDefault(_quill);
@@ -15302,7 +15303,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
           }, {
             name: 'bold',
-            pattern: /(?:\*|_){2}(.+?)(?:\*|_){2}/g,
+            pattern: /(?:^| )(?:\*|_){2}(.+?)(?:\*|_){2}(?: |$)/g,
             action: function action(text, selection, pattern, lineStart) {
               var match = pattern.exec(text);
 
@@ -15320,7 +15321,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             }
           }, {
             name: 'italic',
-            pattern: /(?:\*|_){1}(.+?)(?:\*|_){1}/g,
+            pattern: /(?:^| )(?:[\*_]){1}(.+?)(?:\*|_){1}(?: |$)/g,
             action: function action(text, selection, pattern, lineStart) {
               var match = pattern.exec(text);
 
@@ -15387,7 +15388,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
               }, 0);
             }
           }, {
-            name: 'asterisk-ul',
+            name: 'plus-ul',
             // Quill 1.3.5 already treat * as another trigger for bullet lists
             pattern: /^\+\s$/g,
             action: function action(text, selection, pattern) {
