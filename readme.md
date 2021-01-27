@@ -2,8 +2,6 @@
 
 This package is a [Quill.js](https://quilljs.com) module that converts markdown on the fly to formatted rich text.
 
-[Example](https://patleeman.github.io/quill-markdown-shortcuts/)
-
 # Quickstart
 
 ## Installation
@@ -13,15 +11,7 @@ This package is a [Quill.js](https://quilljs.com) module that converts markdown 
 Use the NPM package manager to add this dependency to your project.
 
 ```bash
-npm i -S quill-markdown-shortcuts
-```
-
-### Using CDN
-
-Add the library via jsdelivr.
-
-```
-<script src="https://cdn.jsdelivr.net/npm/quill-markdown-shortcuts@latest/dist/markdownShortcuts.js">
+npm i -S @devforth/quill-markdown-shortcuts
 ```
 
 ### By downloading file
@@ -75,8 +65,7 @@ const quill = new Quill('#editor', {
 
 # Contributing
 
-Issues and pull requests are welcome! Please [open an issue](https://github.com/patleeman/quill-markdown-shortcuts/issues) for all other inquiries.
-
+Issues and pull requests are welcome!
 ## Building the module and examples
 
 To build the module and the example bundles, please run `npm run build` and include the bundles in your commit. Thanks!
