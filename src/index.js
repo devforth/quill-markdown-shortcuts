@@ -96,19 +96,23 @@ class MarkdownShortcuts {
       },
       {
         name: 'bold',
-        pattern: /(?:^| )(?:\*|_){2}(.+?)(?:\*|_){2}(?: |$)/g,
+        pattern: /(^| )(?:\*|_){2}(.+?)(?:\*|_){2}( |$)/g,
         action: (text, selection, pattern, lineStart) => {
           let match = pattern.exec(text)
 
-          const annotatedText = match[0]
-          const matchedText = match[1]
-          const startIndex = lineStart + match.index
+          const annotatedText = match[0];
+          const beginningSpace = match[1];
+
+          const matchedText = match[2];
+          const endSpace = match[3];
+
+          const startIndex = lineStart + match.index;
 
           if (text.match(/^([*_ \n]+)$/g)) return
 
           setTimeout(() => {
             this.quill.deleteText(startIndex, annotatedText.length)
-            this.quill.insertText(startIndex, matchedText, {bold: true})
+            this.quill.insertText(startIndex, beginningSpace + matchedText + endSpace, {bold: true})
             this.quill.format('bold', false)
           }, 0)
         }
