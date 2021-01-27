@@ -115,7 +115,7 @@ class MarkdownShortcuts {
       },
       {
         name: 'italic',
-        pattern: /(?:\*|_){1}(.+?)(?:\*|_){1}/g,
+        pattern: /(?:^| )(?:[\*_]){1}(.+?)(?:\*|_){1}(?: |$)/g,
         action: (text, selection, pattern, lineStart) => {
           let match = pattern.exec(text)
 
