@@ -115,19 +115,23 @@ class MarkdownShortcuts {
       },
       {
         name: 'italic',
-        pattern: /(?:^| )(?:[\*_]){1}(.+?)(?:\*|_){1}(?: |$)/g,
+        pattern: /(^| )(?:[\*_]){1}(.+?)(?:\*|_){1}( |$)/g,
         action: (text, selection, pattern, lineStart) => {
           let match = pattern.exec(text)
 
           const annotatedText = match[0]
-          const matchedText = match[1]
+          const beginningSpace = match[1]
+
+          const matchedText = match[2]
+          const endSpace = match[3]
+
           const startIndex = lineStart + match.index
 
           if (text.match(/^([*_ \n]+)$/g)) return
 
           setTimeout(() => {
             this.quill.deleteText(startIndex, annotatedText.length)
-            this.quill.insertText(startIndex, matchedText, {italic: true})
+            this.quill.insertText(startIndex, beginningSpace + matchedText + endSpace, {italic: true})
             this.quill.format('italic', false)
           }, 0)
         }
