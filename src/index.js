@@ -96,7 +96,7 @@ class MarkdownShortcuts {
       },
       {
         name: 'bold',
-        pattern: /(?:\*|_){2}(.+?)(?:\*|_){2}/g,
+        pattern: /(?:^| )(?:\*|_){2}(.+?)(?:\*|_){2}(?: |$)/g,
         action: (text, selection, pattern, lineStart) => {
           let match = pattern.exec(text)
 
